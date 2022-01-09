@@ -1,0 +1,32 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd 
+   http://www.liquibase.org/xml/ns/dbchangelog 
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="add product table" author="KC">
+        <createTable tableName="product">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="ean" type="BIGINT"/>
+            <column name="category" type="VARCHAR(255)"/>
+            <column name="quantity" type="NUMERIC"/>
+            <column name="starting_quantity" type="NUMERIC"/>
+            <column name="gross_cost" type="NUMERIC"/>
+            <column name="gross_value" type="NUMERIC"/>
+            <column name="product_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add accounting_year column to products" author="KC">
+        <addColumn tableName="product">
+            <column name="accounting_year" type="SMALLINT"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
